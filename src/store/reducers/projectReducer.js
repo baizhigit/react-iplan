@@ -7,16 +7,15 @@ const initialState = {
   ]
 };
 
-const projectReducer = (state = initialState, { type, payload }) => {
-  // switch (type) {
-  //   case typeName:
-  //     return { ...state, ...payload };
+const projectReducer = (state = initialState, { type, project }) => {
+  switch (type) {
+    case 'CREATE_PROJECT':
+      console.log('created project', project);
+      return { ...state, ...project };
 
-  //   default:
-  //     return state;
-  // }
-
-  return state;
+    default:
+      return state;
+  }
 };
 
 export default projectReducer;
