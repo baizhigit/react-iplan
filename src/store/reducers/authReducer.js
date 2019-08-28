@@ -1,15 +1,27 @@
-const initialState = {};
+const initialState = {
+  authError: null
+};
 
-const authReducer = (state = initialState, { type, payload }) => {
-  // switch (type) {
-  //   case typeName:
-  //     return { ...state, ...payload };
+const authReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'LOGIN_SUCCESS':
+      console.log('login success');
+      // return { ...state, ...payload };
+      return {
+        ...state,
+        authError: null
+      };
 
-  //   default:
-  //     return state;
-  // }
+    case 'LOGIN_ERROR':
+      console.log('login error');
+      return {
+        ...state,
+        authError: 'Login failed'
+      };
 
-  return state;
+    default:
+      return state;
+  }
 };
 
 export default authReducer;
